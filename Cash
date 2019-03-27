@@ -37,7 +37,7 @@ int main(void)
     */
     coin += money / 25;
     money %= 25;
-
+    
     //Modulo Dime
     /*
     15 / 10 = 1.5 -> 1 which is now added to coin so now coin equals 3
