@@ -1,0 +1,56 @@
+#include <stdio.h>
+
+int main(void)
+{
+    int pH = 0;
+
+    // Asks user to enter a number
+    //Stores number into pH
+    printf("Please enter a number 1-23: ");
+    scanf("%d", &pH);
+
+    //Error checking for numbers outside of 1-23
+    while( pH < 1 || pH > 23)
+        {
+            printf("Please enter a number 1-23: ");
+            scanf("%d", &pH);
+        }
+
+
+    // Prints New line after the space and hash
+    for(int i = 0; i < pH; i++)
+    {
+        // Prints spaces
+        for( int s = pH - i; s > 1; s--)
+        {
+
+        printf(" ");
+
+        }
+
+    // Prints Hash
+        for(int j = 0; j < i; j++)
+        {
+
+            printf("#");
+
+        }
+
+    //Prints space between hash
+        printf("  ");
+
+    //Prints second hash
+        for(int j = 0; j < i; j++)
+        {
+
+            printf("#");
+
+        }
+
+        printf("\n");
+
+    }
+
+
+ return 0;
+}
