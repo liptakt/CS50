@@ -1,0 +1,67 @@
+#include <stdio.h>
+#include <cs50.h>
+#include <math.h> //This is for round
+
+int main(void)
+{
+
+    float change;
+
+    int coin = 0;
+    int money = 0;
+
+    // Asks user to enter a float. Stores float. checks to make sure its not a
+    // Negative number, zero, char, string
+    do
+    {
+        printf("Please enter the amount of change: ");
+        change = get_float();
+
+    }
+    while( change <= .009);
+
+    //Changes float into integer value
+    change = change * 100;
+
+    //round to make sure we get a non repeating number
+    change = round(change);
+
+    //Takes float and makes it an integer
+    money = change;
+
+    //Modulo Quarter
+    /*
+    Takes the amount of money and divides it by 25 for the vaulue of a quarter
+    .61->61 / 25 = 2.44 -> 2. 2 is then added to coin so coin now equals 2
+    61 % 25 = 15.25 -> 15 is now added to money so now money is 15
+    */
+    coin += money / 25;
+    money %= 25;
+
+    //Modulo Dime
+    /*
+    15 / 10 = 1.5 -> 1 which is now added to coin so now coin equals 3
+    15 % 10 = 5 which is now added to money so money is now 5
+    */
+    coin += money / 10;
+    money %= 10;
+
+    //Modulo Nickle
+    /*
+    5 / 5 = 1 which is now added to coin so now coin equals 3
+    5 % 5 = which 5 goes into 5 so we are done here.
+    Now ends here
+    */
+    coin += money / 5;
+    money %= 5;
+
+    //Modulo Penny
+    coin += money;
+
+    //Print amount of coins
+    printf("Total coins: %d\n", coin);
+
+//Exits program
+ return 0;
+
+}
