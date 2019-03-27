@@ -36,7 +36,7 @@ int duration(string fraction)
         else if(fraction[2] == '1')
         {
             return 8;
-        }
+        } 
     }
 
     else if(fraction[0] == '3' && fraction[2] == '8')
