@@ -1,0 +1,80 @@
+#include <stdio.h>
+#include <cs50.h>
+#include <string.h>
+#include <ctype.h>
+
+int main(int argc, string argv[0])
+{
+    //Variables
+   // int A = 65;
+    //int a = 97;
+    //int alpha = 26;
+
+
+    //Checks to make sure only 2 aruments are entered in
+    if(argc !=2)
+    {
+        printf("Re-Enter\n");
+        return 1;
+    }
+
+    //Puts argv 1 into an int from a string
+    string k = argv[1];
+
+    int klength = strlen(k);
+
+    //Checks if the integer is non-negative
+    for(int i = 0; i < strlen(argv[1]); i++)
+    {
+        if(isalpha(argv[1][i]) == false)
+        {
+            printf("Must contain A and a");
+            return 1;
+        }
+    }
+
+    // Reads input
+    string text = get_string("Plaintext: ");
+
+    //Prints out cipher
+    printf("ciphertext: ");
+
+
+    //int length = strlen(text);
+
+    for(int i = 0, j = 0; i < strlen(text); i++)
+    {
+            //Gets the key for the letter
+           int key = tolower(k[j % klength]) - 'a';
+
+           //Keeps case of the letter
+           if(isupper(text[i]))
+           {
+               //Modulo and add the case
+               printf("%c", 'A' + (text[i] - 'A' + key) % 26);
+
+               //Increments j when used
+               j++;
+           }
+
+           else if(islower(text[i]))
+           {
+               //Modulo and add the case
+               printf("%c", 'a' + (text[i] - 'a' + key) % 26);
+
+               //Increments j when used
+               j++;
+           }
+
+           else
+           {
+               printf("%c", text[i]);
+           }
+
+
+    }
+
+    printf("\n");
+
+    return 0;
+}
